@@ -15,7 +15,7 @@
     <RootNamespace>SchemaZen.console</RootNamespace>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
-    <StartupObject />
+    <StartupObject>SchemaZen.console.Program</StartupObject>
     <AssemblyName>SchemaZen</AssemblyName>
   </PropertyGroup>
 </Project>

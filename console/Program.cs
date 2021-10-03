@@ -1,32 +1,38 @@
-﻿using System;
+﻿using ManyConsole;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using ManyConsole;
 
-namespace SchemaZen.console {
-	internal class Program {
-		private static int Main(string[] args) {
-			try {
-				return ConsoleCommandDispatcher.DispatchCommand(
-					GetCommands(), args, Console.Out);
-			} catch (Exception ex) {
-				Console.WriteLine(ex.Message);
-				Console.WriteLine(ex.StackTrace);
-				return -1;
-			} finally {
+namespace SchemaZen.console
+{
+		internal static class Program
+		{
+				private static int Main(string[] arguments)
+				{
+						try
+						{
+								return ConsoleCommandDispatcher.DispatchCommand(GetCommands(), arguments, Console.Out);
+						}
+						catch (Exception exception)
+						{
+								Console.WriteLine(exception.Message);
+								Console.WriteLine(exception.StackTrace);
+								return -1;
+						}
+						finally
+						{
 #if DEBUG
-				if (Debugger.IsAttached)
-					ConsoleQuestion.WaitForKeyPress();
+								if (Debugger.IsAttached)
+								{
+										ConsoleQuestion.WaitForKeyPress();
+								}
 #endif
-			}
-		}
+						}
+				}
 
-		private static IEnumerable<ConsoleCommand> GetCommands() {
-			return new List<ConsoleCommand> {
-				new Script(),
-				new Create(),
-				new Compare()
-			};
+				private static IEnumerable<ConsoleCommand> GetCommands()
+				{
+						return new List<ConsoleCommand> { new Script(), new Create(), new Compare() };
+				}
 		}
-	}
 }

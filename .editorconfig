@@ -16,6 +16,7 @@ space_after_cast = false
 empty_block_style = together
 align_multiline_binary_expressions_chain = false
 space_within_single_line_array_initializer_braces = true
+indent_size=2
 
 [*.{cs,html}]
 indent_style = tab

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Console": {
+      "commandName": "Project",
+      "commandLineArgs": "script --server=localhost --database=sir"
+    }
+  }
+}
